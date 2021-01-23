@@ -33,7 +33,9 @@ const App = () => {
   });
 
   useEffect(() => {
-    setState({ ...state, contacts: JSON.parse(localStorage.getItem(lsKey)) });
+    if (localStorage.getItem(lsKey)) {
+      setState({ ...state, contacts: JSON.parse(localStorage.getItem(lsKey)) });
+    }
   }, []);
 
   const lsKey = 'contacts';
